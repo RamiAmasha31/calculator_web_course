@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rami's Calculator</title>
+</head>
+<style>
+body{
+
+    display: flex;
+    flex-direction: row;
+    margin:0;
+    height: 100vh;
+    background-color: rgb(53, 52, 53);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #353435;
+background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23eba000' fill-opacity='0.1'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.title{
+    color: #eba000;
+    font-size: 50px;
+}
+.contanier{
+    margin:5% auto;
+    text-align: center;
+    justify-content: center;
+    
+}
+.calculator{
+    border:1px solid #eba000;
+    border-width: 4px;
+    border-radius: 4px;
+    
+    
+    display:inline-block;
+    margin:2%;
+    
+}
+.btn-row{
+    margin: 0.1%;
+}
+.empty{
+    clear:both;
+}
+.btn{
+    color: black;
+    background-color: #eba000;
+    float:left;
+    margin:1.2%;
+    width:40px;
+    height: 40px;
+    padding: 1.5%;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+.btn:hover{
+    opacity:50%;
+}
+.card{
+    background-color: #eba000;
+    text-align: center;
+    width: 150%; 
+   
+}
+@media(max-width:390px){
+    body{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .card{
+        margin-left: 0%;
+    }
+    .contanier{
+        margin-right: 5%;
+    }
+}
+.description{
+    margin-left:10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#display{
+    margin: 2%;
+    width:95%;
+    height: 30px;
+    background-color: grey;
+    border-radius: 4px;
+    text-align:center;
+    color:black;
+    font-size: 16px;
+}
+input::placeholder {
+    text-align: center;
+    color:black;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;}
+.btn1{
+       width:14.5%;
+}
+.number{
+        background-color:  rgb(165, 160, 160);
+}
+.first-line{
+        background-color: rgb(165, 160, 160);
+        
+        
+}
+.first-row-btn{
+        margin:6px;
+        display: flex;
+        justify-content: center;
+        background-color:  rgb(165, 160, 160);
+        border-radius: 4px;
+        width:335px;
+        padding:5px;
+        align-items:center;
+        
+}
+.last{
+        margin-bottom: 15px;
+
+}
+.github-link {
+            
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: black;
+            text-decoration: none;
+}
+
+.card:hover .github-link {
+            opacity: 1;
+}
+.card p:first-child {
+    font-weight: bold;
+    text-decoration:underline
+}
+</style>
+
+
+
+<body>
+    <div class="description">
+        <div class="card">
+            <p>Project Description:</p>
+            <p> This is a Scientific Calculator.</p>
+            <p>Created By: Rami Amasha.</p> 
+             <a href="https://github.com/RamiAmasha31/Scientific-Calculator..git" class="github-link">GitHub Link<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+              </svg></a>
+        </div>
+    </div>
+    <div class="contanier"> 
+        <div class="title">Calculator</div>
+        
+        <div class="calculator">
+            <input type="text" placeholder="result" id="display" disabled>
+            <div class="first-row-btn">
+                <div class=" btn first-line not-yet">MC </div>
+                <div class=" btn first-line  not-yet" >MR </div>
+                <div class=" btn first-line not-yet">M+ </div>
+                <div class=" btn first-line not-yet">M- </div>
+                <div class=" btn first-line not-yet">MS </div>
+                <div class=" btn first-line last not-yet">M<sup>&minus;</sup></div>
+                <div class="empty"></div>
+            </div>
+            <div class="btn-row">
+                <div class="btn btn1 not-yet">2<sup>d</sup></div>
+                <div class="btn btn1">&pi;</div>
+                <div class="btn btn1">e</div>
+                <div class="btn btn1">C</div>
+                <div class="btn btn1">←</div>
+                <div class="empty"></div>
+            </div>
+            
+            <div class="btn-row">
+                <div class="btn  btn1">√x</div>
+                <div class="btn btn1">(</div>
+                <div class="btn btn1">)</div>
+                <div class="btn btn1 not-yet">n!</div>
+                <div class="btn btn1">&#247; </div>
+                <div class="empty"></div>
+            </div>
+
+            <div class="btn-row">
+                <div class="btn btn1 not-yet">x<sup>y</sup></div>
+                <div class="btn btn1 number">7</div>
+                <div class="btn btn1 number">8</div>
+                <div class="btn btn1 number">9</div>
+                <div class="btn btn1">X</div>
+                <div class="empty"></div>
+            </div>
+            <div class="btn-row">
+                <div class="btn btn1 not-yet">10<sup>x</sup></div>
+                <div class="btn btn1 number">4</div>
+                <div class="btn btn1 number">5</div>
+                <div class="btn btn1 number">6</div>
+                <div class="btn btn1">-</div>
+                <div class="empty"></div>
+            </div>
+            <div class="btn-row">
+                <div class="btn btn1">log</div>
+                <div class="btn btn1 number">1</div>
+                <div class="btn btn1 number">2</div>
+                <div class="btn btn1 number">3</div>
+                <div class="btn btn1">+</div>
+                <div class="empty"></div>
+            </div>
+            <div class="btn-row">
+                <div class="btn btn1">ln</div>
+                <div class="btn btn1 not-yet ">&plus;&sol;&minus;</div>
+                <div class="btn btn1 number">0</div>
+                <div class="btn btn1">.</div>
+                <div class="btn btn1">=</div>
+                <div class="empty"></div>
+            </div>
+        </div>
+
+  </div>
+  <!-- Your existing HTML code -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the display element
+        const display = document.getElementById('display');
+        const throwEr=document.querySelectorAll('.not-yet');
+        throwEr.forEach( er=>{
+            er.addEventListener('click',function(){
+                handleAlertER();
+            });
+        });
+        // Add click event listener to all buttons
+        const buttons = document.querySelectorAll('.btn, .btn1');
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                handleButtonClick(this.innerText);
+            });
+        });
+        function handleAlertER(){
+            alert("This button is not implmented yet! we are working on it.");
+        }
+        // Function to handle button clicks
+        function handleButtonClick(value) {
+            if (value === '=') {
+                try {
+                    // Replace ÷ with /
+                    // Replace × with *
+                    const expression = display.value.replace(/÷/g, '/').replace(/X/g, '*');
+                    // Evaluate the mathematical expression
+                    display.value = eval(expression);
+                } catch (error) {
+                    // Handle invalid expressions
+                    display.value = 'Error';
+                }
+            } else if (value === 'C') {
+                // Clear the display
+                display.value = '';
+            }else if (value=='←') {
+                display.value = display.value.slice(0, -1);
+            }
+            else if (value=='√x'){
+                display.value= Math.sqrt(display.value);
+            }
+            else {
+                // Append the clicked button value to the display
+                display.value += value;
+            }
+        }
+    });
+</script>
+
+
+
+
+<!-- Your existing HTML code -->
+
+
+
+
+
+<!-- special scripts for integration in App Gallery - must be placed at the bottom of the HTML after your code -->
+<script>
+    // custom config for the MTW app 
+    const mtwAppConfig = {
+        border: true // app border in the MTW page                    
+    }
+
+    ///////////////////////////////////////////////////////
+    // implement this functions in order to use private API        
+    const sendPrivateApiRequest = async () => {
+        // your code here:
+        // sendRequestToParent({ cat: 'getAssets' })
+    }        
+
+    const acceptPrivateApiResponse = async (data) => {
+        // process received data here:
+        // console.log(data)
+    }
+
+    // use this in order to send on document load
+    document.addEventListener('DOMContentLoaded', () => {
+        // your code here:
+        //sendRequestToParent({ method: 'getAssets' })
+    })
+
+</script>
+<script src="https://morethanwallet.com/appstore/index.js"></script>
+
+
+
+</body>
+</html>
